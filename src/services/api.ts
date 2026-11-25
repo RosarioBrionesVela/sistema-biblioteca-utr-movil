@@ -1,7 +1,5 @@
 import * as SecureStore from "expo-secure-store";
 
-
-
 // Dirección de nuestra API
 const API_URL = process.env.EXPO_PUBLIC_API_URL;
 
@@ -36,6 +34,8 @@ export async function apiFetch(
 
         // Manejo de errores HTTP
         if (!respuesta.ok) {
+            console.log("Código de respuesta:", respuesta.status);
+            console.log("Respuesta de la API:", await respuesta.clone().text());
             if (respuesta.status === 401) {
                 await SecureStore.deleteItemAsync("user_jwt_token");
                 throw new Error("Tu sesión ha expirado. Inicia sesión nuevamente.");

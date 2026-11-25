@@ -7,6 +7,7 @@ import DetailScreen from "../screens/DetailScreen";
 import LoansScreen from "../screens/LoansScreen";
 import LoginScreen from "../screens/LoginScreen";
 import ProfileScreen from "../screens/ProfileScreen";
+import RegisterScreen from "../screens/RegisterScreen";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -30,6 +31,12 @@ export default function AppNavigator() {
         name="Login"
         component={LoginScreen}
         options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="Registro"
+        component={RegisterScreen}
+        options={{ title: "Crear cuenta" }}
       />
 
       <Stack.Screen
